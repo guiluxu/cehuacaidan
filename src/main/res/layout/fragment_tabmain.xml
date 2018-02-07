@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.shizhefei.view.indicator.FixedIndicatorView
-        android:id="@+id/fragment_tabmain_indicator"
+    <com.shizhefei.view.indicator.ScrollIndicatorView
+        android:id="@+id/moretab_indicator"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
 

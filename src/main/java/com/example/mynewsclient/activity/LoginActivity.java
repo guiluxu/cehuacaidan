@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.mynewsclient.R;
 import com.example.mynewsclient.utils.App;
 import com.example.mynewsclient.utils.SpUtils;
-import com.example.mynewsclient.utils.TabMainActivity;
 import com.suke.widget.SwitchButton;
 
 import butterknife.Bind;

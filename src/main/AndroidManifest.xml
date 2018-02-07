@@ -18,11 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+
         <activity
-            android:name=".utils.TabMainActivity"
+            android:name=".activity.TabMainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>
 
