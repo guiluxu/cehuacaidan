@@ -41,20 +41,6 @@ public class FirstLayerFragment extends LazyFragment {
 		ViewPager viewPager = (ViewPager) findViewById(R.id.fragment_tabmain_viewPager);
 		Indicator indicator = (Indicator) findViewById(R.id.fragment_tabmain_indicator);
 
-		/*switch (index) {
-		case 0:
-			indicator.setScrollBar(new ColorBar(getApplicationContext(), Color.RED, 5));
-			break;
-		case 1:
-			indicator.setScrollBar(new ColorBar(getApplicationContext(), Color.RED, 0, Gravity.CENTENT_BACKGROUND));
-			break;
-		case 2:
-			indicator.setScrollBar(new ColorBar(getApplicationContext(), Color.RED, 5, Gravity.TOP));
-			break;
-		case 3:
-			indicator.setScrollBar(new LayoutBar(getApplicationContext(), R.layout.layout_slidebar, Gravity.CENTENT_BACKGROUND));
-			break;
-		}*/
 		indicator.setScrollBar(new ColorBar(getApplicationContext(), Color.RED, 5));
 
 		float unSelectSize = 16;
@@ -121,13 +107,13 @@ public class FirstLayerFragment extends LazyFragment {
 
 		@Override
 		public int getCount() {
-			if (index == 0){
+			/*if (index == 0){
 				return 0;
 			}else if(index == 1){
 				return 2;
-			}else{
+			}else{*/
 				return 4;
-			}
+//			}
 		}
 
 		@Override
