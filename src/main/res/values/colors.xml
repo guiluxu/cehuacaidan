@@ -32,4 +32,7 @@
     <color name="tab_top_text_2">#000</color>
     <color name="tab_top2_text_1">#000</color>
     <color name="tab_top2_text_2">#fff</color>
+
+    <color name="tab_checked">#3F51B5</color>
+    <color name="tab_unchecked">#757575</color>
 </resources>
