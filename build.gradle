@@ -44,6 +44,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     //网易顶部tab，新浪微博主页底部tab(ViewPagerIndicator)
     compile 'com.shizhefei:ViewPagerIndicator:1.1.6'
-
+    //个人中心
+    compile 'com.github.lygttpod:SuperTextView:2.1.6'
     testCompile 'junit:junit:4.12'
 }

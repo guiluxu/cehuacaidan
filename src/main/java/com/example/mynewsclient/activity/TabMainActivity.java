@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.mynewsclient.R;
 import com.example.mynewsclient.fragment.FirstLayerFragment;
+import com.example.mynewsclient.fragment.MeFragment;
 import com.example.mynewsclient.fragment.MoreTabFragment;
+import com.example.mynewsclient.fragment.NewsFragment;
 import com.shizhefei.fragment.LazyFragment;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
@@ -45,8 +47,8 @@ public class TabMainActivity extends FragmentActivity {
         fragments = new ArrayList<>();
         fragments.add(fr1 = new MoreTabFragment());
         fragments.add(fr2 = new FirstLayerFragment());
-        fragments.add(fr3 = new FirstLayerFragment());
-        fragments.add(fr4 = new FirstLayerFragment());
+        fragments.add(fr3 = new NewsFragment());
+        fragments.add(fr4 = new MeFragment());
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
 
