@@ -54,7 +54,7 @@ public class TabMainActivity extends FragmentActivity {
 
         SViewPager viewPager = (SViewPager) findViewById(R.id.tabmain_viewPager);
         indicator = (FixedIndicatorView) findViewById(R.id.tabmain_indicator);
-        indicator.setOnTransitionListener(new OnTransitionTextListener().setColor(Color.RED, Color.GRAY));
+        indicator.setOnTransitionListener(new OnTransitionTextListener().setColor(Color.parseColor("#4CAF50"), Color.parseColor("#cdcdcd")));
 
         indicatorViewPager = new IndicatorViewPager(indicator, viewPager);
         indicatorViewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
