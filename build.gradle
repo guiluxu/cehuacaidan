@@ -46,5 +46,7 @@ dependencies {
     compile 'com.shizhefei:ViewPagerIndicator:1.1.6'
     //个人中心
     compile 'com.github.lygttpod:SuperTextView:2.1.6'
+    //glide图片加载
+    compile 'com.github.bumptech.glide:glide:3.7.0'
     testCompile 'junit:junit:4.12'
 }

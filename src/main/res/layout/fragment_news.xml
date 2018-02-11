@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88ffffff"
     tools:context=".activity.TabMainActivity">
-
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recylerview"
+        android:padding="4dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>
-

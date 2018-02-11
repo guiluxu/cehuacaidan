@@ -6,9 +6,10 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mynewsclient.R;
@@ -28,12 +29,13 @@ public class MoreTabFragment extends LazyFragment {
     public static final String INTENT_INT_INDEX = "intent_int_index";
     private String tabName;
     private int index;
+    private LayoutInflater inflate;
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.activity_moretab2);
-
+        inflate = LayoutInflater.from(getApplicationContext());
         Bundle bundle = getArguments();
         tabName = bundle.getString(INTENT_STRING_TABNAME);
         index = bundle.getInt(INTENT_INT_INDEX);
@@ -80,14 +82,66 @@ public class MoreTabFragment extends LazyFragment {
 
         @Override
         public View getViewForPage(int position, View convertView, ViewGroup container) {
-            if (convertView == null) {
+            /*if (convertView == null) {
                 convertView = new TextView(container.getContext());
             }
             TextView textView = (TextView) convertView;
             textView.setText(names[position]);
             textView.setGravity(Gravity.CENTER);
             textView.setTextColor(Color.GRAY);
+            return convertView;*/
+
+
+
+            if (convertView == null)
+            {
+                convertView = inflate.inflate(R.layout.tab_moretab_item, container, false);
+            }
+            ImageView centerPic = (ImageView) convertView.findViewById(R.id.ivFeedCenter);
+            TextView centerBottom = (TextView) convertView.findViewById(R.id.ivFeedBottom);
+            if (position == 0){
+                centerPic.setImageResource(R.mipmap.a);
+                centerBottom.setText("Yang Yang and his mother looked at the phone camera together. They had a funny look.");
+            }else if (position == 1){
+                centerPic.setImageResource(R.mipmap.b);
+                centerBottom.setText("I was most satisfied with the picture of yan and I kissing each other in front of the old windowsill.");
+            }else if (position == 2){
+                centerPic.setImageResource(R.mipmap.c);
+                centerBottom.setText("Yan's first person is standing quietly on the lake of charm staring into the distance, this picture is very beautiful.");
+            }else if (position == 3){
+                centerPic.setImageResource(R.mipmap.d);
+                centerBottom.setText("Yan and I stood together on the beautiful lake, and we looked at each other.");
+            }else if (position == 4){
+                centerPic.setImageResource(R.mipmap.e);
+                centerBottom.setText("Yang Yang was born on this day. He was still in his grandmother's arms.");
+            }else if (position == 5){
+                centerPic.setImageResource(R.mipmap.f);
+                centerBottom.setText("When we were bathing in yangyang, he peed and was very happy.");
+            }else if (position == 6){
+                centerPic.setImageResource(R.mipmap.g);
+                centerBottom.setText("Yan just finished his hair, his hair is very beautiful, especially his beauty.");
+            }else if (position == 7){
+                centerPic.setImageResource(R.mipmap.h);
+                centerBottom.setText("The wedding picture taken by yan and I in a european-style room is very retro and beautiful.");
+            }else if (position == 8){
+                centerPic.setImageResource(R.mipmap.i);
+                centerBottom.setText("This picture was taken by yan before I knew her. She was eating a snack.");
+            }else if (position == 9){
+                centerPic.setImageResource(R.mipmap.j);
+                centerBottom.setText("Yangyang and yan at the city god temple, they look very warm.");
+            }else if (position == 10){
+                centerPic.setImageResource(R.mipmap.k);
+                centerBottom.setText("Yangyang is very cute. Yan's head is holding him. I like this picture very much.");
+            }
             return convertView;
+/*
+
+            if (convertView == null) {
+                convertView = inflate.inflate(R.layout.tab_top, container, false);
+            }
+            TextView textView = (TextView) convertView;
+            textView.setText(tabName + " " + position);
+            return convertView;*/
         }
 
         @Override

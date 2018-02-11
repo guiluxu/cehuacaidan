@@ -30,7 +30,7 @@ public class SecondLayerFragment extends LazyFragment {
         super.onCreateViewLazy(savedInstanceState);
         tabName = getArguments().getString(INTENT_STRING_TABNAME);
         position = getArguments().getInt(INTENT_INT_POSITION);
-        setContentView(R.layout.fragment_tabmain_item);
+        setContentView(R.layout.fragment_tabmain_second);
         textView = (TextView) findViewById(R.id.fragment_mainTab_item_textView);
         textView.setText(tabName + " " + position + " 界面加载完毕");
         progressBar = (ProgressBar) findViewById(R.id.fragment_mainTab_item_progressBar);
