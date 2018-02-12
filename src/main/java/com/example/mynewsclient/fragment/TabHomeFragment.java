@@ -23,7 +23,7 @@ import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 /**
  * Created by LuckyJayce on 2016/6/25.
  */
-public class MoreTabFragment extends LazyFragment {
+public class TabHomeFragment extends LazyFragment {
     private IndicatorViewPager indicatorViewPager;
     public static final String INTENT_STRING_TABNAME = "intent_String_tabname";
     public static final String INTENT_INT_INDEX = "intent_int_index";
@@ -34,7 +34,7 @@ public class MoreTabFragment extends LazyFragment {
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
-        setContentView(R.layout.activity_moretab2);
+        setContentView(R.layout.fragment_tabmain_home);
         inflate = LayoutInflater.from(getApplicationContext());
         Bundle bundle = getArguments();
         tabName = bundle.getString(INTENT_STRING_TABNAME);

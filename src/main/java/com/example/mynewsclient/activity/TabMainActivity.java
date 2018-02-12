@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mynewsclient.R;
-import com.example.mynewsclient.fragment.FirstLayerFragment;
-import com.example.mynewsclient.fragment.MeFragment;
-import com.example.mynewsclient.fragment.MoreTabFragment;
-import com.example.mynewsclient.fragment.NewsFragment;
+import com.example.mynewsclient.fragment.TabHomeFragment;
+import com.example.mynewsclient.fragment.TabMessageFragment;
+import com.example.mynewsclient.fragment.TabMeFragment;
+import com.example.mynewsclient.fragment.TabDiscoverFragment;
 import com.shizhefei.fragment.LazyFragment;
 import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.IndicatorViewPager;
@@ -43,12 +43,12 @@ public class TabMainActivity extends FragmentActivity {
     }
 
     private void initView() {
-        tabNames = new String[]{"主页", "消息", "发现", "我"};
+        tabNames = new String[]{"homepage", "message", "discover", "me"};
         fragments = new ArrayList<>();
-        fragments.add(fr1 = new MoreTabFragment());
-        fragments.add(fr2 = new FirstLayerFragment());
-        fragments.add(fr3 = new NewsFragment());
-        fragments.add(fr4 = new MeFragment());
+        fragments.add(fr1 = new TabHomeFragment());
+        fragments.add(fr2 = new TabMessageFragment());
+        fragments.add(fr3 = new TabDiscoverFragment());
+        fragments.add(fr4 = new TabMeFragment());
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
 
@@ -94,18 +94,18 @@ public class TabMainActivity extends FragmentActivity {
         public Fragment getFragmentForPage(int position) {
             LazyFragment mainFragment = fragments.get(position);
             Bundle bundle = new Bundle();
-            if (tabNames[position].equals("主页")){
-                bundle.putString(MoreTabFragment.INTENT_STRING_TABNAME, tabNames[position]);
-                bundle.putInt(MoreTabFragment.INTENT_INT_INDEX, position);
-            }else if (tabNames[position].equals("消息")){
-                bundle.putString(FirstLayerFragment.INTENT_STRING_TABNAME, tabNames[position]);
-                bundle.putInt(FirstLayerFragment.INTENT_INT_INDEX, position);
-            }else if (tabNames[position].equals("发现")){
-                bundle.putString(FirstLayerFragment.INTENT_STRING_TABNAME, tabNames[position]);
-                bundle.putInt(FirstLayerFragment.INTENT_INT_INDEX, position);
+            if (tabNames[position].equals("homepage")){
+                bundle.putString(TabHomeFragment.INTENT_STRING_TABNAME, tabNames[position]);
+                bundle.putInt(TabHomeFragment.INTENT_INT_INDEX, position);
+            }else if (tabNames[position].equals("message")){
+                bundle.putString(TabMessageFragment.INTENT_STRING_TABNAME, tabNames[position]);
+                bundle.putInt(TabMessageFragment.INTENT_INT_INDEX, position);
+            }else if (tabNames[position].equals("discover")){
+                bundle.putString(TabMessageFragment.INTENT_STRING_TABNAME, tabNames[position]);
+                bundle.putInt(TabMessageFragment.INTENT_INT_INDEX, position);
             }else{
-                bundle.putString(FirstLayerFragment.INTENT_STRING_TABNAME, tabNames[position]);
-                bundle.putInt(FirstLayerFragment.INTENT_INT_INDEX, position);
+                bundle.putString(TabMessageFragment.INTENT_STRING_TABNAME, tabNames[position]);
+                bundle.putInt(TabMessageFragment.INTENT_INT_INDEX, position);
             }
             mainFragment.setArguments(bundle);
             return mainFragment;

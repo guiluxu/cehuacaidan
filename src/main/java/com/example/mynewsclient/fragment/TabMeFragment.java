@@ -9,11 +9,11 @@ import com.shizhefei.fragment.LazyFragment;
  * Created by HGTXxgl on 2018/2/9.
  */
 
-public class MeFragment extends LazyFragment {
+public class TabMeFragment extends LazyFragment {
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
-        setContentView(R.layout.fragment_me);
+        setContentView(R.layout.fragment_tabmain_me);
     }
 }

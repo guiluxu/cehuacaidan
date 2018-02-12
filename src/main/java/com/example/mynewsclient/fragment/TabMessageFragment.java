@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,20 +19,28 @@ import com.shizhefei.view.indicator.IndicatorViewPager.IndicatorFragmentPagerAda
 import com.shizhefei.view.indicator.slidebar.ColorBar;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 
-public class FirstLayerFragment extends LazyFragment {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TabMessageFragment extends LazyFragment {
 	private IndicatorViewPager indicatorViewPager;
 	private LayoutInflater inflate;
 	public static final String INTENT_STRING_TABNAME = "intent_String_tabname";
 	public static final String INTENT_INT_INDEX = "intent_int_index";
 	private String tabName;
 	private int index;
-
+	private List<LazyFragment> fragments;
+	private String[] tabNames;
 	@Override
 	protected void onCreateViewLazy(Bundle savedInstanceState) {
 		super.onCreateViewLazy(savedInstanceState);
-		setContentView(R.layout.fragment_tabmain);
+		setContentView(R.layout.fragment_tabmain_message);
 		Resources res = getResources();
-
+		fragments = new ArrayList<>();
+		fragments.add(new MessageMusicFragment());
+		fragments.add(new MessageVideoFragment());
+		fragments.add(new MessageNewsFragment());
+		tabNames = new String[]{"MUSIC", "VIDEO", "NEWS"};
 		Bundle bundle = getArguments();
 		tabName = bundle.getString(INTENT_STRING_TABNAME);
 		index = bundle.getInt(INTENT_INT_INDEX);
@@ -59,44 +66,6 @@ public class FirstLayerFragment extends LazyFragment {
 		// 而在activity里面用FragmentManager 是 getSupportFragmentManager()
 		indicatorViewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
 
-		Log.d("cccc", "Fragment 将要创建View " + this);
-		
-	}
-
-	@Override
-	protected void onResumeLazy() {
-		super.onResumeLazy();
-		Log.d("cccc", "Fragment所在的Activity onResume, onResumeLazy " + this);
-	}
-
-	@Override
-	protected void onFragmentStartLazy() {
-		super.onFragmentStartLazy();
-		Log.d("cccc", "Fragment 显示 " + this);
-	}
-
-	@Override
-	protected void onFragmentStopLazy() {
-		super.onFragmentStopLazy();
-		Log.d("cccc", "Fragment 掩藏 " + this);
-	}
-
-	@Override
-	protected void onPauseLazy() {
-		super.onPauseLazy();
-		Log.d("cccc", "Fragment所在的Activity onPause, onPauseLazy " + this);
-	}
-
-	@Override
-	protected void onDestroyViewLazy() {
-		super.onDestroyViewLazy();
-		Log.d("cccc", "Fragment View将被销毁 " + this);
-	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		Log.d("cccc", "Fragment 所在的Activity onDestroy " + this);
 	}
 
 	private class MyAdapter extends IndicatorFragmentPagerAdapter {
@@ -112,7 +81,7 @@ public class FirstLayerFragment extends LazyFragment {
 			}else if(index == 1){
 				return 2;
 			}else{*/
-				return 4;
+				return 3;
 //			}
 		}
 
@@ -122,17 +91,30 @@ public class FirstLayerFragment extends LazyFragment {
 				convertView = inflate.inflate(R.layout.tab_top, container, false);
 			}
 			TextView textView = (TextView) convertView;
-			textView.setText(tabName + " " + position);
+			textView.setText(tabNames[position]);
 			return convertView;
 		}
 
 		@Override
 		public Fragment getFragmentForPage(int position) {
-			SecondLayerFragment mainFragment = new SecondLayerFragment();
+			/*MessageMusicFragment mainFragment = new MessageMusicFragment();
 			Bundle bundle = new Bundle();
-			bundle.putString(SecondLayerFragment.INTENT_STRING_TABNAME, tabName);
-			bundle.putInt(SecondLayerFragment.INTENT_INT_POSITION, position);
-			mainFragment.setArguments(bundle);
+			bundle.putString(MessageMusicFragment.INTENT_STRING_TABNAME, tabName);
+			bundle.putInt(MessageMusicFragment.INTENT_INT_POSITION, position);
+			mainFragment.setArguments(bundle);*/
+			LazyFragment mainFragment = fragments.get(position);
+			/*Bundle bundle = new Bundle();
+			if (tabNames[position].equals("MUSIC")){
+				bundle.putString(TabHomeFragment.INTENT_STRING_TABNAME, tabNames[position]);
+				bundle.putInt(TabHomeFragment.INTENT_INT_INDEX, position);
+			}else if (tabNames[position].equals("VIDEO")){
+				bundle.putString(TabMessageFragment.INTENT_STRING_TABNAME, tabNames[position]);
+				bundle.putInt(TabMessageFragment.INTENT_INT_INDEX, position);
+			}else if (tabNames[position].equals("NEWS")){
+				bundle.putString(TabMessageFragment.INTENT_STRING_TABNAME, tabNames[position]);
+				bundle.putInt(TabMessageFragment.INTENT_INT_INDEX, position);
+			}
+			mainFragment.setArguments(bundle);*/
 			return mainFragment;
 		}
 	}

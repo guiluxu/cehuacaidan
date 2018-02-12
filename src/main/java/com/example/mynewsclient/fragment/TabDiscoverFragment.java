@@ -16,13 +16,13 @@ import java.util.List;
  * Created by HGTXxgl on 2018/2/9.
  */
 
-public class NewsFragment extends LazyFragment {
+public class TabDiscoverFragment extends LazyFragment {
     private RecyclerView recyclerView;
     private List<Beauty> data = new ArrayList<>();
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
-        setContentView(R.layout.fragment_tabmain_item);
+        setContentView(R.layout.fragment_tabmain_discover);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //使用瀑布流布局,第一个参数 spanCount 列数,第二个参数 orentation 排列方向
         StaggeredGridLayoutManager recyclerViewLayoutManager =
