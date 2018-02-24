@@ -22,6 +22,10 @@
         <activity
             android:name=".activity.TabMainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <service android:name=".common.PlayingMusicServices"
+            android:exported="true"
+            android:enabled="true"/>
     </application>
 
 </manifest>
